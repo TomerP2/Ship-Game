@@ -42,13 +42,4 @@ public class ShipController : MonoBehaviour
 
         transform.Rotate(Vector3.up * turnSpeed * rudderAngle * Time.deltaTime);
     }
-
-    public void straightenRudder() {
-        while (rudderAngle != 0) {
-            if (rudderAngle < 0) { moveShip(0, 1);}
-            else { moveShip(0, -1);}
-        }
-    }
-
-
 }
