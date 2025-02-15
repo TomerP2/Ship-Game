@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class enemyController : MonoBehaviour
 {
-    public float minSecsBetweenTurns = 30;
-    public float maxSecsBetweenTurns = 60;
     private ShipController shipController;
 
     void Start()
@@ -15,5 +13,14 @@ public class enemyController : MonoBehaviour
     {
         // Move forward in a straight line
         shipController.moveShip(1, 0);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Projectile"))
+        {
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 }
