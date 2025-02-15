@@ -4,10 +4,7 @@ public class enemyController : MonoBehaviour
 {
     public float minSecsBetweenTurns = 30;
     public float maxSecsBetweenTurns = 60;
-
     private ShipController shipController;
-    private float nextTriggerTime = 0;
-    private bool isTurning = false;
 
     void Start()
     {
