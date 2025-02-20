@@ -28,6 +28,8 @@ public class ShipController : MonoBehaviour
             throw new ArgumentOutOfRangeException("Input is out of range"); 
         }
 
+        Debug.Log("Test");
+
         // Handle ship speed
         speed += acceleration * verticalInput * Time.deltaTime;
         if (speed > maxSpeed) speed = maxSpeed;
