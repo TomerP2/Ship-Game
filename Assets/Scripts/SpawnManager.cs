@@ -13,9 +13,14 @@ public class SpawnManager : MonoBehaviour
 
     void spawnEnemy()
     {
-        Vector3 loc = new Vector3(Random.Range(-spawnRange, spawnRange), Random.Range(-spawnRange, spawnRange), 0);
-        Quaternion rot = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
-        Instantiate(enemyPrefab, loc, rot);
+        int enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+        if (enemyCount <= maxEnemiesAtOnce)
+        {
+            Vector3 loc = new Vector3(Random.Range(-spawnRange, spawnRange), Random.Range(-spawnRange, spawnRange), 0);
+            Quaternion rot = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
+            Instantiate(enemyPrefab, loc, rot);
+        }
     }
 
     void Update()
