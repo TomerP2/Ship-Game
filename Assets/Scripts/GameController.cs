@@ -34,6 +34,6 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        killCountText.text = killCount + "Kills";
+        killCountText.text = killCount + (killCount == 1 ? " Kill" : " Kills");
     }
 }
