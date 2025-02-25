@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7788310070952780610}
   - component: {fileID: 1156542346833762075}
   - component: {fileID: 5149942181597939838}
-  - component: {fileID: 6358275823352085589}
+  - component: {fileID: -9033353311654669571}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Merchant
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   turnSpeed: 5
   rudderAcceleration: 1
   rudderRange: 3
---- !u!114 &6358275823352085589
+--- !u!114 &-9033353311654669571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,7 +191,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3299052115248765874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1105ad1a71a2dc49b335bc780192677, type: 3}
+  m_Script: {fileID: 11500000, guid: 659edacfdb1284046b309d9b87b3188c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8716251939753314077, guid: 788a2cae95d798243b4a6117502b8482, type: 3}

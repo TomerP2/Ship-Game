@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        shipController.moveShip(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
+        shipController.MoveShip(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
 
         if (Input.GetKeyDown(KeyCode.E)) {shootCannonball("Right");}
         else if (Input.GetKeyDown(KeyCode.Q)) {shootCannonball("Left");}

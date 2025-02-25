@@ -7,6 +7,7 @@ public class ShipController : MonoBehaviour
     // Private variables
     private float speed = 0;
     private float rudderAngle = 0;
+    private float decreaseRudderAngle = 180; // when the angle between the enemys current direction and the player is less than this, the rudder angle will be decreased.
 
     // Public variables
     public float acceleration = 1;
@@ -21,10 +22,11 @@ public class ShipController : MonoBehaviour
     void Update() {
     }
 
-    public void moveShip(float verticalInput, float horizontalInput)
+    public void MoveShip(float verticalInput, float horizontalInput)
     {
+        Debug.Log(horizontalInput);
         // Test for vertical/horizontal input limits
-        if ( !(-1 <= verticalInput || verticalInput >= 1 || -1 <= horizontalInput || horizontalInput >= 1) )
+        if (-1 > verticalInput || verticalInput > 1 || -1 > horizontalInput || horizontalInput > 1)
          {
             Debug.Log("Vertical input:" + verticalInput + ". Horizontal input:" + horizontalInput);
             throw new ArgumentOutOfRangeException("Input is out of range"); 
@@ -45,6 +47,15 @@ public class ShipController : MonoBehaviour
         transform.Rotate(-1 * Vector3.forward * turnSpeed * rudderAngle * Time.deltaTime);
     }
 
+    public void RotateTowards(Vector2 direction)
+    {
+        Debug.DrawRay(transform.position, transform.up, Color.white);
+        // Get degrees between the ships forward direction and the vector towards the player. 
+        float degrees = Vector2.SignedAngle(transform.up, direction);
+        float horizontalInput = ScaleDegreesToRange(degrees);
+        MoveShip(0, horizontalInput);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Handle collisions with border
@@ -58,6 +69,23 @@ public class ShipController : MonoBehaviour
             float angle = (Mathf.Atan2(reflection.y, reflection.x) * Mathf.Rad2Deg) - 90f;
 
             transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
+    }
+
+    private float ScaleDegreesToRange(float degrees)
+    {
+        // Clamp degrees between -180 and 180
+        if (degrees < -decreaseRudderAngle)
+        {
+            return 1f;
+        }
+        else if (degrees >= -decreaseRudderAngle && degrees <= decreaseRudderAngle) 
+        {
+            return -1 * Mathf.Lerp(-1f, 1f, (degrees + decreaseRudderAngle) / (2 * decreaseRudderAngle)); 
+        }
+        else
+        {
+            return -1f; 
         }
     }
 }
