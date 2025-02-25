@@ -18,7 +18,9 @@ public class ShipController : MonoBehaviour
 
     void Start() {}
 
-    void Update() {}
+    void Update() {
+    }
+
     public void moveShip(float verticalInput, float horizontalInput)
     {
         // Test for vertical/horizontal input limits
@@ -27,8 +29,6 @@ public class ShipController : MonoBehaviour
             Debug.Log("Vertical input:" + verticalInput + ". Horizontal input:" + horizontalInput);
             throw new ArgumentOutOfRangeException("Input is out of range"); 
         }
-
-        Debug.Log("Test");
 
         // Handle ship speed
         speed += acceleration * verticalInput * Time.deltaTime;
@@ -43,5 +43,21 @@ public class ShipController : MonoBehaviour
         if (rudderAngle > rudderRange) rudderAngle = rudderRange;
 
         transform.Rotate(-1 * Vector3.forward * turnSpeed * rudderAngle * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Handle collisions with border
+        if (other.gameObject.CompareTag("Border"))
+        {
+            // Get normal of border
+            Vector2 normal = -1 * other.gameObject.transform.up;
+            // Get vector of reflection of ship from border
+            Vector2 reflection = Vector3.Reflect(transform.up, normal);
+            // Get angle of reflection vector
+            float angle = (Mathf.Atan2(reflection.y, reflection.x) * Mathf.Rad2Deg) - 90f;
+
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 }
