@@ -18,7 +18,6 @@ public class enemyController : MonoBehaviour
 
         // Get vector that points to player
         Vector2 towardsPlayer = (player.transform.position - transform.position).normalized;
-        Debug.DrawRay(transform.position, towardsPlayer, Color.red);
 
         // Turn towards player
         shipController.RotateTowards(towardsPlayer);

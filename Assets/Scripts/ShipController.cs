@@ -7,15 +7,14 @@ public class ShipController : MonoBehaviour
     // Private variables
     private float speed = 0;
     private float rudderAngle = 0;
-    private float decreaseRudderAngle = 180; // when the angle between the enemys current direction and the player is less than this, the rudder angle will be decreased.
+    private float decreaseTurningSpeed = 15; // when the angle between the enemys current direction and the player is less than this, the turning speed will be decreased.
 
     // Public variables
     public float acceleration = 1;
     public float maxSpeed = 3;
     public float minSpeed = -1;
     public float turnSpeed = 5;
-    public float rudderAcceleration = 1;
-    public float rudderRange = 3;
+    public float rudderAcceleration = 0.3f;
 
     void Start() {}
 
@@ -27,9 +26,9 @@ public class ShipController : MonoBehaviour
         Debug.Log(horizontalInput);
         // Test for vertical/horizontal input limits
         if (-1 > verticalInput || verticalInput > 1 || -1 > horizontalInput || horizontalInput > 1)
-         {
+        {
             Debug.Log("Vertical input:" + verticalInput + ". Horizontal input:" + horizontalInput);
-            throw new ArgumentOutOfRangeException("Input is out of range"); 
+            throw new ArgumentOutOfRangeException("Input is out of range");
         }
 
         // Handle ship speed
@@ -41,19 +40,23 @@ public class ShipController : MonoBehaviour
 
         // Handle ship rotation
         rudderAngle += horizontalInput * Time.deltaTime * rudderAcceleration;
-        if (rudderAngle < -rudderRange) rudderAngle = -rudderRange;
-        if (rudderAngle > rudderRange) rudderAngle = rudderRange;
-
-        transform.Rotate(-1 * Vector3.forward * turnSpeed * rudderAngle * Time.deltaTime);
+        if (rudderAngle < -1) rudderAngle = -1;
+        if (rudderAngle > 1) rudderAngle = 1;
+        rotateShip(rudderAngle);
     }
 
     public void RotateTowards(Vector2 direction)
     {
-        Debug.DrawRay(transform.position, transform.up, Color.white);
         // Get degrees between the ships forward direction and the vector towards the player. 
         float degrees = Vector2.SignedAngle(transform.up, direction);
-        float horizontalInput = ScaleDegreesToRange(degrees);
-        MoveShip(0, horizontalInput);
+        float angle = ScaleDegreesToRange(degrees);
+
+        rotateShip(angle);
+    }
+
+    private void rotateShip(float rudderAngle)
+    {
+        transform.Rotate(-1 * Vector3.forward * turnSpeed * rudderAngle * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -75,13 +78,13 @@ public class ShipController : MonoBehaviour
     private float ScaleDegreesToRange(float degrees)
     {
         // Clamp degrees between -180 and 180
-        if (degrees < -decreaseRudderAngle)
+        if (degrees < -decreaseTurningSpeed)
         {
             return 1f;
         }
-        else if (degrees >= -decreaseRudderAngle && degrees <= decreaseRudderAngle) 
+        else if (degrees >= -decreaseTurningSpeed && degrees <= decreaseTurningSpeed) 
         {
-            return -1 * Mathf.Lerp(-1f, 1f, (degrees + decreaseRudderAngle) / (2 * decreaseRudderAngle)); 
+            return -1 * Mathf.Lerp(-1f, 1f, (degrees + decreaseTurningSpeed) / (2 * decreaseTurningSpeed)); 
         }
         else
         {
