@@ -1,14 +1,17 @@
 using UnityEngine;
+using UnityEngine.InputSystem.Android.LowLevel;
 
 public class enemyController : MonoBehaviour
 {
     private ShipController shipController;
     private GameObject player;
+    private GameController gameController;
 
     void Start()
     {
         shipController = GetComponent<ShipController>();
         player = GameObject.Find("Player");
+        gameController = GameObject.Find("Game Controller").GetComponent<GameController>();
     }
 
     void Update()
@@ -27,6 +30,7 @@ public class enemyController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Projectile")) // If hit by cannonball.
         {
+            gameController.killCount++;
             Destroy(other.gameObject);
             Destroy(gameObject);
         } else if (other.gameObject.CompareTag("Player")) // If hit player.
