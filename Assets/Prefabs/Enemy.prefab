@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 7788310070952780610}
   - component: {fileID: 1156542346833762075}
   - component: {fileID: 5149942181597939838}
-  - component: {fileID: 2153061362361628814}
-  - component: {fileID: -8742798683606018495}
+  - component: {fileID: 6358275823352085589}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -81,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 29fdfaee33553e546833236c1f36cfe5, type: 3}
+  m_Sprite: {fileID: 1565905694493695675, guid: cb82665762254ca4bb6c3ca1321b542e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,7 +125,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0018078536, y: 0.004820645}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -136,7 +135,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.42031083, y: 1.1325692}
   m_EdgeRadius: 0
 --- !u!50 &1156542346833762075
 Rigidbody2D:
@@ -180,10 +179,9 @@ MonoBehaviour:
   acceleration: 1
   maxSpeed: 1
   minSpeed: -0.1
-  turnSpeed: 5
+  turnSpeed: 10
   rudderAcceleration: 1
-  rudderRange: 3
---- !u!114 &2153061362361628814
+--- !u!114 &6358275823352085589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,17 +191,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1105ad1a71a2dc49b335bc780192677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-8742798683606018495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3299052115248765874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb3752304056f2a44a9cbb7669f660a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
