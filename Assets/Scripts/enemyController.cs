@@ -3,6 +3,7 @@ using UnityEngine;
 public class enemyController : MonoBehaviour
 {
     private ShipController shipController;
+    private float mapRange = 55;
 
     void Start()
     {

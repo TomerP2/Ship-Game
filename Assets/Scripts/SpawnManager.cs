@@ -5,6 +5,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject enemyPrefab;
     public float spawnRange = 10;
     public float spawnTime = 10;
+    public int maxEnemiesAtOnce = 10;
     void Start()
     {
         InvokeRepeating("spawnEnemy", 0, spawnTime);
