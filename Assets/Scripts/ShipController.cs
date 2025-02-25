@@ -28,18 +28,20 @@ public class ShipController : MonoBehaviour
             throw new ArgumentOutOfRangeException("Input is out of range"); 
         }
 
+        Debug.Log("Test");
+
         // Handle ship speed
         speed += acceleration * verticalInput * Time.deltaTime;
         if (speed > maxSpeed) speed = maxSpeed;
         if (speed < minSpeed) speed = minSpeed;
 
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(Vector3.up * speed * Time.deltaTime);
 
         // Handle ship rotation
         rudderAngle += horizontalInput * Time.deltaTime * rudderAcceleration;
         if (rudderAngle < -rudderRange) rudderAngle = -rudderRange;
         if (rudderAngle > rudderRange) rudderAngle = rudderRange;
 
-        transform.Rotate(Vector3.up * turnSpeed * rudderAngle * Time.deltaTime);
+        transform.Rotate(-1 * Vector3.forward * turnSpeed * rudderAngle * Time.deltaTime);
     }
 }
