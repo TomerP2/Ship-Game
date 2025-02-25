@@ -23,7 +23,6 @@ public class ShipController : MonoBehaviour
 
     public void MoveShip(float verticalInput, float horizontalInput)
     {
-        Debug.Log(horizontalInput);
         // Test for vertical/horizontal input limits
         if (-1 > verticalInput || verticalInput > 1 || -1 > horizontalInput || horizontalInput > 1)
         {

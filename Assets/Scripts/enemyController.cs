@@ -36,6 +36,7 @@ public class enemyController : MonoBehaviour
         } else if (other.gameObject.CompareTag("Player")) // If hit player.
         {
             Destroy(other.gameObject);
+            gameController.GameOver();
         }
     }
 }

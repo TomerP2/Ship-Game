@@ -1,5 +1,8 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class GameController : MonoBehaviour
 {
@@ -11,15 +14,20 @@ public class GameController : MonoBehaviour
     public int maxEnemiesAtOnce = 10;
 
     public TextMeshProUGUI killCountText;
+    public TextMeshProUGUI gameOverText;
+    public Button restartButton;
 
     void Start()
     {
         killCount = 0;
         killCountText.text = "Kills: " + killCount;
-        InvokeRepeating("spawnEnemy", 0, spawnTime);
+        InvokeRepeating("SpawnEnemy", 0, spawnTime);
+
+        gameOverText.gameObject.SetActive(false);
+        restartButton.gameObject.SetActive(false);
     }
 
-    void spawnEnemy()
+    void SpawnEnemy()
     {
         int enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
@@ -29,6 +37,17 @@ public class GameController : MonoBehaviour
             Quaternion rot = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
             Instantiate(enemyPrefab, loc, rot);
         }
+    }
+
+    public void GameOver()
+    {
+        gameOverText.gameObject.SetActive(true);
+        restartButton.gameObject.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     // Update is called once per frame
