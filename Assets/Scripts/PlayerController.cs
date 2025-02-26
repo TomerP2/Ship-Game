@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
@@ -5,6 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     private ShipController shipController;
     public GameObject cannonball;
+    public int cannonsDelay = 5;
+    private bool rightCannonsReady = true;
+    private bool leftCannonsReady = true;
 
     void Start()
     {
@@ -27,14 +32,30 @@ public class PlayerController : MonoBehaviour
         rotation = transform.rotation;
         pos = transform.position;
 
-        if (direction == "Right")
+        if (direction == "Right" && rightCannonsReady)
         {
             pos += transform.right * 0.7f;
-        } else 
+            Instantiate(cannonball, pos, rotation);
+
+            // Reenable cannons after x seconds.
+            rightCannonsReady = false;
+            StartCoroutine(activateActionAfter(cannonsDelay, () => rightCannonsReady = true));
+        } 
+        else if (direction == "Left" && leftCannonsReady)
         {
             pos -= transform.right * 0.7f;
             rotation *= Quaternion.Euler(0, 180, 0);
+            Instantiate(cannonball, pos, rotation);
+
+            // Reenable cannons after x seconds.
+            leftCannonsReady = false;
+            StartCoroutine(activateActionAfter(cannonsDelay, () => leftCannonsReady = true));
         }
-        Instantiate(cannonball, pos, rotation);
+    }
+
+    IEnumerator activateActionAfter(int seconds, Action setter)
+    {
+        yield return new WaitForSeconds(seconds);
+        setter();
     }
 }
