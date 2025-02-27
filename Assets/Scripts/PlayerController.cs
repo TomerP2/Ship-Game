@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public int cannonsDelay = 5;
     private bool rightCannonsReady = true;
     private bool leftCannonsReady = true;
+    private float cannonballHorizontalSpawnOffset = 0.4f; // How far from the ship the cannonball spawns horizontally.
 
     void Start()
     {
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
         if (direction == "Right" && rightCannonsReady)
         {
-            pos += transform.right * 0.7f;
+            pos += transform.right * cannonballHorizontalSpawnOffset;
             Instantiate(cannonball, pos, rotation);
 
             // Reenable cannons after x seconds.
@@ -43,7 +44,7 @@ public class PlayerController : MonoBehaviour
         } 
         else if (direction == "Left" && leftCannonsReady)
         {
-            pos -= transform.right * 0.7f;
+            pos -= transform.right * cannonballHorizontalSpawnOffset;
             rotation *= Quaternion.Euler(0, 180, 0);
             Instantiate(cannonball, pos, rotation);
 

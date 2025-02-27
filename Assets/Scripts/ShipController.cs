@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ShipController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class ShipController : MonoBehaviour
     public float minSpeed = -1;
     public float turnSpeed = 5;
     public float rudderAcceleration = 0.3f;
+    public GameObject explosionPrefab;
 
     void Start() {}
 
@@ -56,6 +58,13 @@ public class ShipController : MonoBehaviour
     private void rotateShip(float rudderAngle)
     {
         transform.Rotate(-1 * Vector3.forward * turnSpeed * rudderAngle * Time.deltaTime);
+    }
+
+    public void DestroyShip()
+    {
+        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(explosion, 0.58f); // Adjust time based on animation length
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

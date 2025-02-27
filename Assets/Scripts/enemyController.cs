@@ -32,7 +32,7 @@ public class enemyController : MonoBehaviour
         {
             gameController.killCount++;
             Destroy(other.gameObject);
-            Destroy(gameObject);
+            shipController.DestroyShip();
         } else if (other.gameObject.CompareTag("Player")) // If hit player.
         {
             Destroy(other.gameObject);

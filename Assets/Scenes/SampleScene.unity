@@ -1344,6 +1344,10 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 840148436915341956, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[70].second.m_AnimationSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 840148436915341956, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[71].second.m_AnimationSpeed
       value: 2.5
       objectReference: {fileID: 0}
@@ -1393,6 +1397,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 840148436915341956, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[83].second.m_AnimationSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 840148436915341956, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[84].second.m_AnimationSpeed
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 840148436915341956, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
@@ -1595,7 +1603,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2136615993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2008,7 +2016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8645921063687063358, guid: ddc29f5a6179448478ed8f3c72446b28, type: 3}
       propertyPath: m_Name
-      value: Trail
+      value: PS Trail
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2032,6 +2040,7 @@ MonoBehaviour:
   minSpeed: -0.5
   turnSpeed: 10
   rudderAcceleration: 0.3
+  explosionPrefab: {fileID: 0}
 --- !u!50 &8584552984401201585
 Rigidbody2D:
   serializedVersion: 5
