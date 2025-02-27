@@ -598,11 +598,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6896927085328697607, guid: 05eeafb202a60d94a97936057afdc57c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 135.53967
+      value: 59.863808
       objectReference: {fileID: 0}
     - target: {fileID: 6896927085328697607, guid: 05eeafb202a60d94a97936057afdc57c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 75.9
+      value: 30.1
       objectReference: {fileID: 0}
     - target: {fileID: 6896927085328697607, guid: 05eeafb202a60d94a97936057afdc57c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -796,12 +796,16 @@ PrefabInstance:
       value: Border (3)
       objectReference: {fileID: 0}
     - target: {fileID: 6896927085328697607, guid: 05eeafb202a60d94a97936057afdc57c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 58.818813
+      objectReference: {fileID: 0}
+    - target: {fileID: 6896927085328697607, guid: 05eeafb202a60d94a97936057afdc57c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6896927085328697607, guid: 05eeafb202a60d94a97936057afdc57c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8
+      value: 40.9
       objectReference: {fileID: 0}
     - target: {fileID: 6896927085328697607, guid: 05eeafb202a60d94a97936057afdc57c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -859,11 +863,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6896927085328697607, guid: 05eeafb202a60d94a97936057afdc57c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 135.53967
+      value: 56.475315
       objectReference: {fileID: 0}
     - target: {fileID: 6896927085328697607, guid: 05eeafb202a60d94a97936057afdc57c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -77.5
+      value: -29.4
       objectReference: {fileID: 0}
     - target: {fileID: 6896927085328697607, guid: 05eeafb202a60d94a97936057afdc57c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1085,7 +1089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 840148436915341956, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[5].second.m_AnimationSpeed
-      value: 2.5
+      value: 2.5000002
       objectReference: {fileID: 0}
     - target: {fileID: 840148436915341956, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[6].second.m_AnimationSpeed
@@ -1149,7 +1153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 840148436915341956, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[21].second.m_AnimationSpeed
-      value: 2.5
+      value: 2.5000002
       objectReference: {fileID: 0}
     - target: {fileID: 840148436915341956, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[22].second.m_AnimationSpeed
@@ -1237,7 +1241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 840148436915341956, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[43].second.m_AnimationSpeed
-      value: 2.5
+      value: 2.5000002
       objectReference: {fileID: 0}
     - target: {fileID: 840148436915341956, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[44].second.m_AnimationSpeed
@@ -1424,12 +1428,24 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8726330583826238553, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.8114904
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726330583826238553, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.0379267
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726330583826238553, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8114904
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726330583826238553, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.5979
+      value: -1.9349
       objectReference: {fileID: 0}
     - target: {fileID: 8726330583826238553, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.904
+      value: -4.9388
       objectReference: {fileID: 0}
     - target: {fileID: 8726330583826238553, guid: 5a6c3f308d46b3e4c836bc3023b7950b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1618,7 +1634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   killCount: 0
   enemyPrefab: {fileID: 3299052115248765874, guid: 2d99d2d631c5a214d8be17675bd48f6c, type: 3}
-  spawnRange: 50
+  spawnRange: 25
   spawnTime: 2
   maxEnemiesAtOnce: 10
   killCountText: {fileID: 81937688}
@@ -1868,12 +1884,16 @@ PrefabInstance:
       value: Border
       objectReference: {fileID: 0}
     - target: {fileID: 6896927085328697607, guid: 05eeafb202a60d94a97936057afdc57c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 65.21274
+      objectReference: {fileID: 0}
+    - target: {fileID: 6896927085328697607, guid: 05eeafb202a60d94a97936057afdc57c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6896927085328697607, guid: 05eeafb202a60d94a97936057afdc57c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 133.3
+      value: 93.2
       objectReference: {fileID: 0}
     - target: {fileID: 6896927085328697607, guid: 05eeafb202a60d94a97936057afdc57c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2040,7 +2060,7 @@ MonoBehaviour:
   minSpeed: -0.5
   turnSpeed: 10
   rudderAcceleration: 0.3
-  explosionPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 7723868236638102722, guid: b96c73f5fd7fd94479ec87045bae50ce, type: 3}
 --- !u!50 &8584552984401201585
 Rigidbody2D:
   serializedVersion: 5
