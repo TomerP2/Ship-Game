@@ -20,7 +20,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         killCount = 0;
-        killCountText.text = "Kills: " + killCount;
         InvokeRepeating("SpawnEnemy", 0, spawnTime);
 
         gameOverText.gameObject.SetActive(false);
@@ -53,6 +52,6 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        killCountText.text = killCount + (killCount == 1 ? " Kill" : " Kills");
+        killCountText.text = killCount + (killCount == 1 ? " Ship Sunk" : " Ships Sunk");
     }
 }
