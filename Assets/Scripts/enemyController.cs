@@ -38,6 +38,11 @@ public class enemyController : MonoBehaviour
             ShipController otherShip = other.gameObject.GetComponent<ShipController>();
             otherShip.DestroyShip();
             gameController.GameOver();
+        } else if (other.gameObject.CompareTag("Enemy")) // If hit other enemy
+        {
+            ShipController otherShip = other.gameObject.GetComponent<ShipController>();
+            otherShip.DestroyShip();
+            shipController.DestroyShip();
         }
     }
 }
