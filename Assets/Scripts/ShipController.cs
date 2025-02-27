@@ -9,6 +9,7 @@ public class ShipController : MonoBehaviour
     private float speed = 0;
     private float rudderAngle = 0;
     private float decreaseTurningSpeed = 15; // when the angle between the enemys current direction and the player is less than this, the turning speed will be decreased.
+    private GameController gameController;
 
     // Public variables
     public float acceleration = 1;
@@ -18,7 +19,9 @@ public class ShipController : MonoBehaviour
     public float rudderAcceleration = 0.3f;
     public GameObject explosionPrefab;
 
-    void Start() {}
+    void Start() {
+        gameController = GameObject.Find("Game Controller").GetComponent<GameController>();
+    }
 
     void Update() {
     }
@@ -64,6 +67,19 @@ public class ShipController : MonoBehaviour
     {
         GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Destroy(explosion, 0.58f); // Adjust time based on animation length
+
+        // Add to score if enemy is killed
+        if (gameObject.CompareTag("Enemy"))
+        {
+            gameController.killCount++;
+        }
+
+        // End game if player is sunk.
+        else if (gameObject.CompareTag("Player"))
+        {
+            gameController.GameOver();
+        }
+
         Destroy(gameObject);
     }
 
@@ -72,14 +88,7 @@ public class ShipController : MonoBehaviour
         // Handle collisions with border
         if (other.gameObject.CompareTag("Border"))
         {
-            // Get normal of border
-            Vector2 normal = -1 * other.gameObject.transform.up;
-            // Get vector of reflection of ship from border
-            Vector2 reflection = Vector3.Reflect(transform.up, normal);
-            // Get angle of reflection vector
-            float angle = (Mathf.Atan2(reflection.y, reflection.x) * Mathf.Rad2Deg) - 90f;
-
-            transform.rotation = Quaternion.Euler(0, 0, angle);
+            DestroyShip();
         }
     }
 

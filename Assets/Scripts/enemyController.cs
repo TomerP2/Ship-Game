@@ -5,13 +5,11 @@ public class enemyController : MonoBehaviour
 {
     private ShipController shipController;
     private GameObject player;
-    private GameController gameController;
 
     void Start()
     {
         shipController = GetComponent<ShipController>();
         player = GameObject.Find("Player");
-        gameController = GameObject.Find("Game Controller").GetComponent<GameController>();
     }
 
     void Update()
@@ -30,15 +28,9 @@ public class enemyController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Projectile")) // If hit by cannonball.
         {
-            gameController.killCount++;
             Destroy(other.gameObject);
             shipController.DestroyShip();
-        } else if (other.gameObject.CompareTag("Player")) // If hit player.
-        {
-            ShipController otherShip = other.gameObject.GetComponent<ShipController>();
-            otherShip.DestroyShip();
-            gameController.GameOver();
-        } else if (other.gameObject.CompareTag("Enemy")) // If hit other enemy
+        } else if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Enemy")) // If hit player or other enemy.
         {
             ShipController otherShip = other.gameObject.GetComponent<ShipController>();
             otherShip.DestroyShip();
